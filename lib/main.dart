@@ -10,9 +10,12 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    var switchValue = false;
+
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
+        visualDensity: VisualDensity.adaptivePlatformDensity,
         // This is the theme of your application.
         //
         // Try running your application with "flutter run". You'll see the
@@ -24,7 +27,29 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      darkTheme: ThemeData.light(),
+      home: Scaffold(
+        body: Center(
+          child: Switch(
+            value: switchValue,
+            onChanged: (value){
+              switchValue = value;
+            },
+          ),
+        ),
+      ),
+      // home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      // home: Text('hello \n flutter'),
+      // home: Text('hello \n flutter', textAlign: TextAlign.center),
+      // home: const Center(child: Text('hello \n flutter', textAlign: TextAlign.center)),
+      // home:  Container(
+      //   color: Colors.white,
+      //   child: (const Center(
+      //   child: Text('hello\ntest', textAlign: TextAlign.center,
+      //   style: TextStyle(color: Colors.blue, fontSize: 20),),
+      // )),),
+
+
     );
   }
 }
